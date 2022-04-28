@@ -1,0 +1,71 @@
+1 - Apresentação de Sistema
+
+Nome do Computador: vlttech.matrix
+processador: AMD FX8350 Octacore 4.0Ghz
+Memória: Corssair DDR 8gb 1886Mhz X2
+Armazenamento: Hd 1Tb SATA + hd 500gb SATA
+
+2 - Server Plan
+    2.1 - Configuração da BIOS
+    2.2 - Instalação do PROXMOX 
+    2.3 - Configuração do Acesso Remoto
+    2.4 - Configuração do Mail Getway
+    2.5 - Configuração do Host
+    2.6 - Instalação da VM Ubuntu Server
+    2.7 - Instalação da VM Windows Server
+    2.8 - Instalação da VM Hackintoch
+    2.9 - Instalação do NAS
+    2.10 - Configurações de Segurança
+
+3 - Desenvolvimento das atividades
+    ### Configuração da BIOS
+        O Processo de Virtualização de servidores tem como requisito a compatibilidade do processador 
+        Deve-se acessar a BIOS do Computador e habilitar a função de Virtualização do processador
+    
+    ### Instalação do PROXMOX
+        Baixar a ISO do S.O. no site https://www.proxmox.com/en/
+        É necessário uso de software de criação de pendrive Bootável tipo RUFUS
+        Efetuar a Gravação do Disco Bootável no pendrive em "modo DD" (Verificar as opções do software)
+        Configurar no setup do servidor a opção de Boot por USB
+            Obs: Não foi Utilizado modo de Boot UEFI
+        Proceder a Instalação do S.O conforme Instruções da tela
+
+        ERROR ## Importante ##
+
+            Após instalação no momento da primeira inicialização foi apresentado um comportamento anormal
+            É iniciado o servidor e no meio do processo aparece a seguinte mensagem
+                " Group Volume "PVE" not found"
+            Isso ocorre pois o GRUB inicializa os serviços antes dos discos rígidos serem "iniciados ou identificados"
+
+        RESOLUTION ##
+            Na tela de Opções do GRUB digite "e"
+            Procule a linha começa com a Expressão: "Linux
+            e no final da expressão da linha de código ACIMA digite "rootdelay=5"
+            Executa o Comando "ctr+x" para inicializar
+            Done.....
+
+
+ISOs DE SISTEMAS OPERACIONAIS
+    para a instalação dos sistemas seguiremos a lista de programas abaixo
+
+    1- NIOBE - PFSENSE 10Gb
+    2- NEO - UBUNTU SERVER 50Gb
+    3- TRINITY - WINDOWS SERVER 2019 50Gb
+    4- SMITH - WINDOWS 10 70Gb
+    5- MORPHEUS - UBUNTU 50Gb
+    6- ORACLE - POPos 50Gb
+    7- SERAPH - HACKINTOCH 50Gb
+
+    340 GB EM VM
+
+PFSENSE
+
+Sevidor de segurança virtualizado
+ montagem da estrutura de rede
+    1- Placa de rede
+    2- Bridge 
+    3- Maquinas virtuais
+
+    Baixar iso do PFsense em www.pfsense.org
+    instalação comum em máquina virtualizado
+    
